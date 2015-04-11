@@ -4,9 +4,9 @@ body{
 
 .wrapper{
 	width: 800px;
-	height: 450px;
+	height: 600px;
 	position: absolute;
-	margin: -225px 0px 0px -400px;
+	margin: -300px 0px 0px -400px;
 	background-color: white;
 	left: 50%;
 	top: 50%;

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="charset" content="UTF8">
+	<title>ShowText</title>
+	<script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
+<script>
+	var canvas;
+	var stage;
+
+	function init() {
+		canvas = document.getElementById('myCanvas');
+		width = canvas.width;
+		height = canvas.height;
+		stage = new createjs.Stage(canvas);
+
+		// enable touch interactions if supported on the current device:
+		createjs.Touch.enable(stage);
+		// enabled mouse over / out events
+		stage.enableMouseOver(10);
+		stage.mouseMoveOutside = true; // keep tracking the mouse even when it leaves the canvas
+
+		// load the source image:
+		var image = new Image();
+		image.src = "tile.jpg";
+		image.onload = handleImageLoad;
+
+	}
+
+	function handleImageLoad(event) {
+	var image = event.target;
+	var bitmap;
+	var container = new createjs.Container();
+	stage.addChild(container);
+
+	// create and populate the screen with random daisies:
+	
+		bitmap = new createjs.Bitmap(image);
+		container.addChild(bitmap);
+		bitmap.x = canvas.width / 2;
+		bitmap.y = canvas.height / 4;
+		bitmap.cursor = "pointer";
+		stage.update();
+		bitmap.on("click", function (evt) {
+		var  txt = new createjs.Text("", "18px Arial", "#111");
+		txt.text = "This wrapped multi-line text is rendered using the Text Object.\n\n";
+		txt.text += "Text is fairly limited in canvas and EaselJS. It's fine for simple labels, titles, and HUD elements. \n\n";
+
+		txt.lineWidth = 300;
+		txt.lineHeight = 22;
+		txt.textBaseline = "top";
+		txt.textAlign = "left";
+		txt.y = canvas.height - 275;
+		txt.x = (canvas.width - txt.lineWidth) / 2;
+		container.addChild(txt);
+
+		var bounds = txt.getBounds();
+		var pad = 10;
+		var bg = new createjs.Shape();
+		bg.graphics.beginFill("#ABC").drawRoundRect(txt.x - pad + bounds.x, txt.y - pad + bounds.y, bounds.width + pad * 2, bounds.height + pad * 2,10);
+		container.addChildAt(bg, 0);
+
+		stage.update();
+		});
+}
+
+
+
+</script>
+
+</head>
+<body onload="init()">
+
+<canvas id="myCanvas" width="800" height="550"></canvas>
+
+</body>
+</html>

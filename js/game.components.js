@@ -1,15 +1,25 @@
 game.components = {
-	"textBoard" : function(){
-		var container = new createjs.Container(),
-		    img = new Image();
-		img.src = "./images/textboard.png";
-		img.onload = function(){
-			var bitmap;
-			game.stage.addChild(container);
-			bitmap = new createjs.Bitmap(img);
-			container.addChild(bitmap);
-			bitmap.x = 0;
-			bitmap.y = 500;
-		}
+	"containers" : {
+		"textBoard": new createjs.Container(),
+		"funcBoard": new createjs.Container(),
+
+		"textObj": new createjs.Text("", "16px Calibri", "#666"),
+	},
+
+	"textBoard" : function(bitmap){
+		game.stage.addChild(this.containers.textBoard);
+		this.containers.textBoard.addChild(bitmap);
+		bitmap.x = 0;
+		bitmap.y = 500;
+
+		game.components.containers.textBoard.addChild(game.components.containers.textObj);
+		game.components.containers.textObj.shouldbe = "";
+	},
+	
+	"funcBoard" : function(bitmap){
+		game.stage.addChild(this.containers.funcBoard);
+		this.containers.funcBoard.addChild(bitmap);
+		bitmap.x = 0;
+		bitmap.y = 450;
 	},
 };

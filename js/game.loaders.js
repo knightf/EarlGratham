@@ -1,6 +1,13 @@
 game.loaders = {
 	//init
 	"init" : function(){
+		//components
+		game.loaders.componentsQueue.on("complete", game.loaders.componentsComplete, this);
+		game.loaders.componentsQueue.loadManifest([
+			{id: "textboard", src: "./images/textboard.png"},
+			{id: "funcboard", src: "./images/funcboard.png"},
+		]);
+		//scenes
 		//bedroom scene
 		game.loaders.bedRoomQueue.on("complete", game.loaders.bedroomComplete, this);
 		game.loaders.bedRoomQueue.loadManifest([
@@ -18,6 +25,19 @@ game.loaders = {
 			{id: "painting", src:"./images/babyroom_painting.png"},
 		]);
 	},
+	//components
+	"componentsQueue" : new createjs.LoadQueue(),
+	"componentsComplete" : function(){
+		var queue = game.loaders.componentsQueue,
+		    textboard, funcboard;
+
+		textboard = queue.getResult("textboard");
+		game.components.textBoard(new createjs.Bitmap(textboard));
+
+		funcboard = queue.getResult("funcboard");
+		game.components.funcBoard(new createjs.Bitmap(funcboard));
+	},
+	//scenes
 	//bedroom scene
 	"bedRoomQueue" : new createjs.LoadQueue(),
 	"bedroomComplete" : function(){
@@ -42,6 +62,9 @@ game.loaders = {
 		bedroom.addChild(drawer1Img);
 		drawer1Img.x = 678;
 		drawer1Img.y = 309;
+		game.util.bind.click(drawer1Img,[
+			function(){game.util.text.show(game.data.script.bedroom.drawer1);},
+		]);
 
 		drawer2 = queue.getResult("drawer2");
 		drawer2Img = new createjs.Bitmap(drawer2);

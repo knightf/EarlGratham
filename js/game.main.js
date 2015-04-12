@@ -12,10 +12,8 @@ game.init = function(){
 	//force to refresh the canvas
 	createjs.Ticker.setFPS(60);
 	createjs.Ticker.addEventListener('tick', onTick);
-	//load manifest
+	//load manifest & component
 	game.loaders.init();
-	//load component
-	game.components.textBoard();	//text bg
 };
 
 //an empty object to store the scenes for latter access

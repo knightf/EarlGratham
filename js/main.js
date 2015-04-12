@@ -11,6 +11,13 @@ var game = {
 			bitmap.x = 0;
 			bitmap.y = 0;
 			game.director.replace(bedroom);
+
+			var img_painting = queue.getResult("painting");
+			bitmap_painting = new createjs.Bitmap(img_painting);
+			bedroom.addChild(bitmap_painting);
+			bitmap_painting.x = 202;
+			bitmap_painting.y = 51;
+
 		},
 	},
 

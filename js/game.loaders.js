@@ -68,5 +68,8 @@ game.loaders = {
 		var painting = queue.getResult("painting");
 		paintingImg = new createjs.Bitmap(painting);
 		babyroom.addChild(paintingImg);
+
+		//store the scene
+		game.sceneList['babyroom'] = babyroom;
 	},
 };

@@ -14,6 +14,8 @@ game.init = function(){
 	createjs.Ticker.addEventListener('tick', onTick);
 	//load manifest
 	game.loaders.init();
+	//load component
+	game.components.textBoard();	//text bg
 };
 
 //an empty object to store the scenes for latter access

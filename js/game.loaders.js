@@ -54,7 +54,7 @@ game.loaders = {
 		painting = queue.getResult("painting");
 		paintingImg = new createjs.Bitmap(painting);
 		bedroom.addChild(paintingImg);
-		paintingImg.x = 208;
+		paintingImg.x = 202;
 		paintingImg.y = 51;
 
 		drawer1 = queue.getResult("drawer1");
@@ -88,9 +88,23 @@ game.loaders = {
 		bgImg.x = 0;
 		bgImg.y = 0;
 
-		var painting = queue.getResult("painting");
+		painting = queue.getResult("painting");
 		paintingImg = new createjs.Bitmap(painting);
 		babyroom.addChild(paintingImg);
+		paintingImg.x = 700;
+		paintingImg.y = 0;
+
+		door1 = queue.getResult("door1");
+		door1Img = new createjs.Bitmap(door1);
+		babyroom.addChild(door1Img);
+		door1Img.x = 60;
+		door1Img.y = 150;
+
+		door2 = queue.getResult("door2");
+		door2Img = new createjs.Bitmap(door2);
+		babyroom.addChild(door2Img);
+		door2Img.x = 140;
+		door2Img.y = 132;
 
 		//store the scene
 		game.sceneList['babyroom'] = babyroom;

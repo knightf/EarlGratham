@@ -1,14 +1,21 @@
 game.util = {
 	"bind" : {
-		"click" : function(obj, callbacks){
-			obj.on("click", function(evt){
-				var i;
-				for(i = 0; i < callbacks.length; i++){
-					callbacks[i]();
-				}
+		"bedroom" : function(scene){
+			var script = game.data.script.bedroom;
+
+			var bg = scene.getChildByName('bg');
+			bg.on('click', function(){
+				game.util.text.show("I must have a great taste in interior decoration. This room feels so right to me.");
 			});
-		}
+
+			var drawer1 = scene.getChildByName('drawer1');
+			drawer1.on('click', function(){
+				game.util.text.show(script.drawer1);
+			});
+
+		},
 	},
+
 	"text" : {
 		"show" : function(content){
 			var txtExist = game.components.containers.textObj;

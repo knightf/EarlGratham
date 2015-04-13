@@ -3,7 +3,7 @@ game.components = {
 		"textBoard": new createjs.Container(),
 		"funcBoard": new createjs.Container(),
 
-		"textObj": new createjs.Text("", "16px Calibri", "#666"),
+		"textObj": new createjs.Text("", "18px Calibri", "#666"),
 	},
 
 	"textBoard" : function(bitmap){

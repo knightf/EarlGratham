@@ -47,7 +47,9 @@ game.loaders = {
 		
 		bg = queue.getResult("bg"),
 		bgImg = new createjs.Bitmap(bg);
+		bgImg.name = "bg";
 		bedroom.addChild(bgImg);
+		//bedroom.getChildByName('bg').visible = false;
 		bgImg.x = 0;
 		bgImg.y = 0;
 
@@ -59,12 +61,10 @@ game.loaders = {
 
 		drawer1 = queue.getResult("drawer1");
 		drawer1Img = new createjs.Bitmap(drawer1);
+		drawer1Img.name = "drawer1";
 		bedroom.addChild(drawer1Img);
 		drawer1Img.x = 678;
 		drawer1Img.y = 309;
-		game.util.bind.click(drawer1Img,[
-			function(){game.util.text.show(game.data.script.bedroom.drawer1);},
-		]);
 
 		drawer2 = queue.getResult("drawer2");
 		drawer2Img = new createjs.Bitmap(drawer2);
@@ -74,6 +74,8 @@ game.loaders = {
 		
 		//store the scene
 		game.sceneList['bedroom'] = bedroom;
+		//do the bind
+		game.util.bind.bedroom(game.sceneList['bedroom']);
 	},
 	//babyroom scene
 	"babyRoomQueue" : new createjs.LoadQueue(),

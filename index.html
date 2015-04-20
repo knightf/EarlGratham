@@ -3,6 +3,8 @@
 <head>
 	<meta http-equiv="charset" content="UTF8">
 	<title>Earl Grantham</title>
+	<!--page UI-->
+	<link type="text/css" rel="stylesheet" href="./css/ui.css"/>
 	<!--createJs-->
 	<script type="text/javascript" src="https://code.createjs.com/createjs-2014.12.12.min.js"></script>
 	<!--creatine plugin-->
@@ -12,15 +14,14 @@
 	<script type="text/javascript" src="./js/game.data.js"></script>
 	<script type="text/javascript" src="./js/game.loaders.js"></script>
 	<script type="text/javascript" src="./js/game.components.js"></script>
-	<!--page UI-->
-	<link type="text/css" rel="stylesheet" href="./css/ui.css"/>
+	<script type="text/javascript" src="./js/game.status.js"></script>
 </head>
 <!--<body onclick="init()">-->
 <body>
-	<button onclick="game.director.replace(game.sceneList.bedroom)">bedroom</button>
-	<button onclick="game.director.replace(game.sceneList.babyroom)">babyroom</button>
-	<button onclick="game.director.replace(game.sceneList.livingroom)">livingroom</button>
-	<button onclick="game.director.replace(game.sceneList.study)">study</button>
+	<!--<button onclick="game.director.replace(game.sceneList.bedroom)">bedroom</button>-->
+	<!--<button onclick="game.director.replace(game.sceneList.babyroom)">babyroom</button>-->
+	<!--<button onclick="game.director.replace(game.sceneList.livingroom)">livingroom</button>-->
+	<!--<button onclick="game.director.replace(game.sceneList.study)">study</button>-->
 	<div class="wrapper">
 		<canvas id="stage" width="800" height="600"></canvas>
 	</div>

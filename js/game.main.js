@@ -13,7 +13,7 @@ game.init = function(){
 	createjs.Ticker.setFPS(60);
 	createjs.Ticker.addEventListener('tick', onTick);
 	//load manifest & component
-	game.loaders.init();
+	game.util.init();
 };
 
 //an empty object to store the scenes for latter access

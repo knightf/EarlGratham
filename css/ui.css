@@ -1,5 +1,5 @@
-body{
-	background-color: grey;
+html, body{
+	background-color: #224422;
 }
 
 .wrapper{
@@ -7,8 +7,12 @@ body{
 	height: 600px;
 	position: absolute;
 	margin: -300px 0px 0px -400px;
-	background-color: white;
+	background-color: #224422;
 	left: 50%;
 	top: 50%;
 }
 
+@font-face {
+  font-family: "superscript";
+  src: url("./SUPERSCR.TTF");
+}
